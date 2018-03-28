@@ -1,21 +1,15 @@
 # Recursion
 
-**TODO: Add description**
+Recursion, and Tail Recursion sample written by Elixir
 
-## Installation
+Elixirでの再帰と末尾再帰の実装
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `recursion` to your list of dependencies in `mix.exs`:
+## Using
 
-```elixir
-def deps do
-  [
-    {:recursion, "~> 0.1.0"}
-  ]
-end
+```bash
+$ git clone git@github.com:pyar6329/recursion.git
+$ cd recursion
+$ mix deps.get
+$ mix test
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/recursion](https://hexdocs.pm/recursion).
 
