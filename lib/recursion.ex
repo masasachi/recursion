@@ -37,7 +37,7 @@ defmodule TailRecursion do
   """
   def ordered_tree(epics), do: recursive_epics(epics, nil, [])
 
-  def recursive_epics(epics, _, acc) when epics == [], do: acc ++ []
+  def recursive_epics(epics, _, acc) when epics == [], do: acc
 
   def recursive_epics(epics, id, acc) do
     {[root | _], child} =
