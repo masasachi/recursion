@@ -49,12 +49,30 @@ defmodule TailRecursion do
 end
 
 defmodule CreateUserStory do
+
   @doc ~S"""
-  iex> [%UserStory{id: "1", parent_id: "nil"}, %UserStory{id: "2", parent_id: "1"}] |> CreateUserStory.insert_middle("1")
+  iex> [%UserStory{id: "1", parent_id: nil}, %UserStory{id: "2", parent_id: "1"}] |> CreateUserStory.insert_middle("1")
   "2"
+
+  iex> [%UserStory{id: "1", parent_id: nil}, %UserStory{id: "2", parent_id: "1"}] |> CreateUserStory.insert_middle("2")
+  nil
+
+  iex> [] |> CreateUserStory.insert_middle(nil)
+  nil
+
+  iex> [%UserStory{id: "1", parent_id: nil}, %UserStory{id: "2", parent_id: "1"}] |> CreateUserStory.insert_middle(nil)
+  "1"
   """
   def insert_middle(items, insert_parent_id) do
-    items
-    |> Enum.filter(&(&1.parent_id == insert_parent_id))
+    update_story =
+      items
+      |> Enum.filter(&(&1.parent_id == insert_parent_id))
+      |> List.first()
+
+    case update_story do
+      nil -> nil
+
+      _ -> Map.get(update_story, :id)
+    end
   end
 end
