@@ -47,3 +47,14 @@ defmodule TailRecursion do
     recursive_epics(child, root.id, acc ++ [root])
   end
 end
+
+defmodule CreateUserStory do
+  @doc ~S"""
+  iex> [%UserStory{id: "1", parent_id: "nil"}, %UserStory{id: "2", parent_id: "1"}] |> CreateUserStory.insert_middle("1")
+  "2"
+  """
+  def insert_middle(items, insert_parent_id) do
+    items
+    |> Enum.filter(&(&1.parent_id == insert_parent_id))
+  end
+end
